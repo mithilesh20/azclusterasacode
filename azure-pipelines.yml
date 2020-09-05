@@ -20,5 +20,5 @@ steps:
     publishLocation: 'Container'
 - task: CopyFiles@2
   inputs:
-    Contents: '**'
+    Contents: '*'
     TargetFolder: '$(build.artifactstagingdirectory)'
