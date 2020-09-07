@@ -5,19 +5,19 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "default" {
+resource "azurerm_resource_group" "testrgterraformlearning" {
   name     = "${random_pet.prefix.id}-rg"
-  location = "West US 2"
+  location = "West Europe"
 
   tags = {
     environment = "Demo"
   }
 }
 
-resource "azurerm_kubernetes_cluster" "default" {
+resource "azurerm_kubernetes_cluster" "testrgterraformlearningcluster" {
   name                = "${random_pet.prefix.id}-aks"
-  location            = azurerm_resource_group.default.location
-  resource_group_name = azurerm_resource_group.default.name
+  location            = azurerm_resource_group.testrgterraformlearning.location
+  resource_group_name = azurerm_resource_group.testrgterraformlearning.name
   dns_prefix          = "${random_pet.prefix.id}-k8s"
 
   default_node_pool {
